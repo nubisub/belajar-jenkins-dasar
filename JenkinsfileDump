@@ -7,6 +7,33 @@ pipeline {
             }
         }
     }
+}
+
+// label
+pipeline {
+    agent {
+        node {
+            label "linux && fedora"
+        }
+    }
+    stages {
+        stage("hello") {
+            steps {
+                echo("Hello World") 
+            }
+        }
+    }
+}
+
+pipeline {
+    agent any
+    stages {
+        stage("hello") {
+            steps {
+                echo("Hello World") 
+            }
+        }
+    }
     post {
         always {
             echo "Always Condition"
