@@ -3,6 +3,11 @@ pipeline {
     stages {
         stage("Build") {
             steps {
+                script {
+                    for (int i = 0; i<10; i++) {
+                        echo("Loop ${i}")
+                    }
+                }
                 sleep(5)
                 echo "Start Build"
                 sh("./mvnw clean compile test-compile")
