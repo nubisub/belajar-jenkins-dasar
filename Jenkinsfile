@@ -3,15 +3,9 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                script {
-                    for (int i = 0; i<10; i++) {
-                        echo("Loop ${i}")
-                    }
-                }
-                sleep(5)
-                echo "Start Build"
-                sh("./mvnw clean compile test-compile")
-                echo "Finish Build"
+                echo("Start Job     : ${env.JOB_NAME} ")
+                echo("Start Build   : ${env.BUILD_NUMBER} ")
+                echo("Branch Name   : ${env.BRANCH_NAME} ")
             }
         }
         stage("Test") {
