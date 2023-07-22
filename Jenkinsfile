@@ -4,17 +4,16 @@ pipeline {
         stage("Build") {
             steps {
                 sleep(5)
-                echo "Build 1"
-                echo "Build 2"
-                echo "Build 3"
-                echo "Build 4"
+                echo "Start Build"
+                sh("./mvnw clean compile test-compile")
+                echo "Finish Build"
             }
         }
         stage("Test") {
             steps {
                 echo "Test Running 1"
                 echo "Test Running 2"
-                sleep(5)
+                sh("./mvnw test")
                 echo "Test Running 3"
                 echo "Test Running 4"
             }
